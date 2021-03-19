@@ -41,6 +41,14 @@ https://cloud.google.com/dialogflow/es/docs/quick/setup?hl=ja
 export GOOGLE_APPLICATION_CREDENTIALS="[キーのPATH]"
 ```
 
+## Dialogflow のプロジェクト ID を追記
+
+api/index.js の以下の行の'PROJECT ID'を自分のプロジェクト ID に変更
+
+```
+const sessionPath = sessionClient.projectAgentSessionPath('PROJECT ID', req.query.sessionId);
+```
+
 ## API 側 npm モジュールインストール
 
 ```
@@ -55,5 +63,7 @@ npm start
 ```
 
 ## サンプル画面
+
+http://localhost:8080/
 
 ![Screen Image](public/img/screen.png)
