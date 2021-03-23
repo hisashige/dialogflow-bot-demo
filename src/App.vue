@@ -22,7 +22,9 @@
                     max-width="400"
                     elevation="0"
                   >
-                    <v-card-text class="font-weight-black">{{ item.userMessage }}</v-card-text>
+                    <v-card-text class="font-weight-black">
+                      {{ item.userMessage }}
+                    </v-card-text>
                   </v-card>
                 </div>
                 <div class="d-flex justify-start">
@@ -31,7 +33,11 @@
                     size="50"
                     class="mt-5 mr-5"
                   >
-                    <img src="../public/img/dezigon-icon.png" alt="アイコン" width="50px">
+                    <img
+                      src="../public/img/dezigon-icon.png"
+                      alt="アイコン"
+                      width="50px"
+                    >
                   </v-avatar>
                   <v-card
                     v-if="item.botMessage"
@@ -41,7 +47,9 @@
                     elevation="0"
                     dark
                   >
-                    <v-card-text class="font-weight-black">{{ item.botMessage }}</v-card-text>
+                    <v-card-text class="font-weight-black">
+                      {{ item.botMessage }}
+                    </v-card-text>
                   </v-card>
                 </div>
               </div>
@@ -96,9 +104,10 @@ export default {
       dispMessages: [{ // 会話メッセージ表示用データ
         id: 0, // 入力文字列と回答文字列セットのID
         userMessage: '', // 表示用のユーザーの入力文字列
-        botMessage: 'いらっしゃいませ！ご注文をどうぞ〜' // ボットからの回答文字列
+        // ボットからの回答文字列
+        botMessage: 'いらっしゃいませ！ご注文をどうぞ〜'
       }],
-      sessionId: '' // Dialogflowの会話セッションを維持するための一意の文字列
+      sessionId: '' // Dialogflowの会話セッションを維持するID
     };
   },
   created() {
