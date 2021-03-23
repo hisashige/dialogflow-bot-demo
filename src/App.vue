@@ -2,27 +2,29 @@
   <v-app>
     <v-app-bar
       color="light-blue lighten-1"
-      dense
       dark
       fixed
       elevation="0"
     >
       <img src="../public/img/hamburger.png" alt="ロゴ" height="35px" class="mr-4">
-      <v-toolbar-title class="font-weight-black">SoftwareDesignバーガー</v-toolbar-title>
+      <v-toolbar-title class="font-weight-black text-h4">SoftwareDesignバーガー</v-toolbar-title>
     </v-app-bar>
     <v-main class="d-flex flex-column mainContainer">
         <v-sheet color="grey lighten-4" width="100vw">
-          <v-container class="messageContainer px-8 pt-12" :style="`height: calc(100vh - ${computeInputHeight});`">
+          <v-container class="messageContainer px-8 pt-16" :style="`height: calc(100vh - ${computeInputHeight});`">
             <transition-group tag="div" name="slide" class="messageWrapper">
-              <div v-for="item in dispMessages" :key="item.id" >
+              <div
+                v-for="item in dispMessages"
+                :key="item.id"
+              >
                 <div class="d-flex justify-end">
                   <v-card
                     v-if="item.userMessage"
                     class="mt-5 mb-5 rightBalloon"
-                    max-width="400"
+                    max-width="500"
                     elevation="0"
                   >
-                    <v-card-text class="font-weight-black">
+                    <v-card-text class="black--text">
                       {{ item.userMessage }}
                     </v-card-text>
                   </v-card>
@@ -30,7 +32,7 @@
                 <div class="d-flex justify-start">
                   <v-avatar
                     color="transparent"
-                    size="50"
+                    size="64"
                     class="mt-5 mr-5"
                   >
                     <img
@@ -42,12 +44,12 @@
                   <v-card
                     v-if="item.botMessage"
                     class="mt-5 mb-5 leftBalloon"
-                    max-width="400"
+                    max-width="500"
                     color="light-blue lighten-1"
                     elevation="0"
                     dark
                   >
-                    <v-card-text class="font-weight-black">
+                    <v-card-text class="white--text">
                       {{ item.botMessage }}
                     </v-card-text>
                   </v-card>
@@ -75,7 +77,7 @@
               :class="{'alignRight': ['xs', 'sm'].includes($vuetify.breakpoint.name)}"
             >
               <v-btn
-                class="ml-4 font-weight-black"
+                class="ml-4 font-weight-black text-h5"
                 color="light-blue lighten-2"
                 @click="sendMessage()"
                 x-large
@@ -209,6 +211,20 @@ export default {
 .rightBalloon::before {
   background-image: url('../public/img/right-balloon.svg');
   right: -12px;
+}
+.v-card__text {
+  font-weight: 900 !important;
+  font-size: 1.5rem !important;
+  line-height: 2.5rem !important;
+}
+/* 入力フォーム */
+.v-input input {
+  font-size: 1.5rem !important;
+}
+.v-application--is-ltr .v-text-field .v-label {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  height: 1.5rem;
 }
 /* アニメーション */
 .slide-enter-active, .slide-leave-active {
