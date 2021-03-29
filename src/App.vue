@@ -65,6 +65,7 @@
                 cols="12"
                 md="10"
               >
+              <!-- 入力フォームのテキストフィールド -->
               <v-text-field
                 v-model="inputMessage"
                 label="ご注文をどうぞ"
@@ -76,6 +77,7 @@
               md="2"
               :class="{'alignRight': ['xs', 'sm'].includes($vuetify.breakpoint.name)}"
             >
+              <!-- 「注文する」ボタン -->
               <v-btn
                 class="ml-4 font-weight-black text-h5"
                 color="light-blue lighten-2"
@@ -94,11 +96,13 @@
 </template>
 
 <script>
+// 必要なパッケージのインポート
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios'
 
 export default {
   name: 'App',
+  // 初期データ
   data: function() {
     return {
       talkId: 1, // カウント用の入力文字列と回答文字列セットのID
@@ -113,6 +117,7 @@ export default {
     };
   },
   created() {
+    // セッションIDの設定
     this.sessionId = uuidv4()
   },
   computed: {
